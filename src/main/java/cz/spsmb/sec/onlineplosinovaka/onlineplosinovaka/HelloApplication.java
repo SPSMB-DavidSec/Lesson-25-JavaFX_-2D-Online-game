@@ -112,7 +112,6 @@ public class HelloApplication extends ClientEventHandler {
             //[PLAYER_POS] David Šec,0xff0000ff,100,500
             updatePlayerPosition(message.getContentAsString());
         }
-
     }
 
     private void clearScreen() {
@@ -166,13 +165,14 @@ public class HelloApplication extends ClientEventHandler {
         Integer posX = Integer.parseInt(strArray[2]);
         Integer posY = Integer.parseInt(strArray[3]);
 
-        if (players.containsKey(playerId)){
+        if (players.containsKey(playerId)) {
             Player p = players.get(playerId);
             p.setX(posX);
             p.setY(posY);
             p.setColor(color);
         }
         else {
+            System.out.println("New player detected " + playerId);
             Player player = new Player(posX, posY);
             player.setColor(color);
             players.put(playerId, player);
