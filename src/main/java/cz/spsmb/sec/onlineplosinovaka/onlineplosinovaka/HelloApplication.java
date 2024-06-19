@@ -31,17 +31,16 @@ public class HelloApplication extends Application {
 
             @Override
             public void handle(long now) {
-                long dt = now - lastTick;
                 if (now - lastTick > 10000) {
                     lastTick = now;
-                    tick(dt);
+                    tick();
                 }
             }
         };
         animationTimer.start();
     }
 
-    private void tick(long dt) {
+    private void tick() {
     }
 
     public static void main(String[] args) {
